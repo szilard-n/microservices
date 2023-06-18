@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - dbdata:/var/lib/postgresql/data
+  keycloak:
+    image: bitnami/keycloak:latest
+    restart: unless-stopped
+    environment:
+      - KEYCLOAK_HTTP_RELATIVE_PATH=/auth
+      - KEYCLOAK_DATABASE_HOST=${DB_HOST}
+      - KEYCLOAK_DATABASE_NAME=${DB_NAME}
+      - KEYCLOAK_DATABASE_USER=${DB_USER}
+      - KEYCLOAK_DATABASE_PASSWORD=${DB_PASSWORD}
+      - KEYCLOAK_DATABASE_SCHEMA=${DB_SCHEMA}
+      - KEYCLOAK_ADMIN_USER=${KEYCLOAK_USER}
+      - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
+    ports:
+      - '8181:8080'
+    depends_on:
+      - postgres
+  inventory-service:
+    build:
+      context: ./inventory-service
+      dockerfile: Dockerfile
+      args:
+        - BUILD_NO_CACHE=1
+    restart: unless-stopped
+    environment:
+      - DATASOURCE_URL=jdbc:postgresql://postgres:5432/${DB_NAME}?currentSchema=inventory_service
+      - DATASOURCE_USERNAME=${DB_USER}
+      - DATASOURCE_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - postgres
+  product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - DATASOURCE_URL=jdbc:postgresql://postgres:5432/${DB_NAME}?currentSchema=product_service
+      - DATASOURCE_USERNAME=${DB_USER}
+      - DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - INVENTORY_URL=http://inventory-service:8080/api/inventory
+    depends_on:
+      - inventory-service
+      - postgres
+    ports:
+      - '8080:8080'
+
+volumes:
+  dbdata: { }
