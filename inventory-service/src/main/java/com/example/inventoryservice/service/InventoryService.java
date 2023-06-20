@@ -1,5 +1,6 @@
 package com.example.inventoryservice.service;
 
+
 import com.example.inventoryservice.dto.InventoryDto;
 import com.example.inventoryservice.dto.InventoryUpdateRequest;
 import com.example.inventoryservice.exception.InsufficientQuantityException;

@@ -1,7 +1,7 @@
 package com.example.productservice.handler;
 
 import com.example.productservice.dto.ApiErrorResponse;
-import com.example.productservice.exception.NotFoundException;
+import com.example.productservice.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
@@ -23,7 +23,7 @@ public class ApiExceptionHandler {
 
     private static final String CONTACT_SUPPORT_MSG = "Something went wrong. Please contact support.";
 
-    @ExceptionHandler(value = {NotFoundException.class})
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
     public ResponseEntity<ApiErrorResponse> resourceNotFoundExceptionHandler(RuntimeException ex, WebRequest request) {
         HttpStatus status = HttpStatus.NOT_FOUND;
         return buildResponse(request, status, ex.getMessage());

@@ -30,6 +30,9 @@ public class Product {
     )
     private UUID id;
 
+    @Column(name = "seller_id")
+    private UUID sellerId;
+
     @Column(name = "name")
     private String name;
 

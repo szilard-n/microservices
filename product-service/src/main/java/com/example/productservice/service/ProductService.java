@@ -9,12 +9,14 @@ import com.example.productservice.dto.product.ProductPreviewDto;
 import com.example.productservice.dto.product.PurchaseRequest;
 import com.example.productservice.dto.product.PurchaseResponse;
 import com.example.productservice.dto.product.RestockRequest;
-import com.example.productservice.exception.NotFoundException;
+import com.example.productservice.exception.ResourceNotFoundException;
 import com.example.productservice.model.Product;
 import com.example.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,7 @@ public class ProductService {
     @Transactional
     public ProductPreviewDto create(CreateProductRequest createProductRequest) {
         Product product = Product.builder()
+                .sellerId(getLoggedInUsersId())
                 .name(createProductRequest.name())
                 .description(createProductRequest.description())
                 .price(createProductRequest.price())
@@ -57,7 +60,7 @@ public class ProductService {
     }
 
     public void restock(RestockRequest restockRequest) {
-        Product product = findById(restockRequest.productId());
+        Product product = findSellersProduct(restockRequest.productId(), getLoggedInUsersId());
         inventoryClient.updateInventoryForRestock(new InventoryUpdateRequest(product.getId(), restockRequest.quantity()));
         log.info("Product with id {} restocked with {} units", product.getId(), restockRequest.quantity());
     }
@@ -85,14 +88,28 @@ public class ProductService {
 
     @Transactional
     public void delete(UUID id) {
-        productRepository.delete(findById(id));
+        productRepository.delete(findSellersProduct(id, getLoggedInUsersId()));
         inventoryClient.removeProductFromInventory(id);
         log.info("Product with id {} removed", id);
     }
 
     private Product findById(UUID id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Product not found!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
     }
 
+    private Product findSellersProduct(UUID productId, UUID sellerId) {
+        return productRepository.findByIdAndSellerId(productId, sellerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
+    }
+
+    private UUID getLoggedInUsersId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null) {
+            throw new AuthenticationCredentialsNotFoundException("Security context was not set");
+        }
+
+        return UUID.fromString(authentication.getName()); // seller's uuid is saved as 'name' in the security context
+    }
 }
