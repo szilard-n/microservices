@@ -9,13 +9,20 @@
 			"name": "Create Product",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQmQxem1BVDBxNTF6ek1QemxkY0RqYU9WcTlvdUR1enAxLVJpcnZoQTRzIn0.eyJleHAiOjE2ODc0MzczOTIsImlhdCI6MTY4NzQzNzA5MiwianRpIjoiMTQ3NWExNDUtYTZmNS00ZjI2LWIwOGMtZTJiYmIzOTI4ODcyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgxL2F1dGgvcmVhbG1zL2UtY29tIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQwYmQ0ZjU0LWM2NWEtNDQ0ZS04NWM3LTA2YjQwYTk1ZTY1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFjY2Vzcy10b2tlbiIsInNlc3Npb25fc3RhdGUiOiJmODFlODkzNi00OGMyLTQ3N2UtODUzMS05ZGM5ZDk0OGRjYTQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsImh0dHA6Ly9sb2NhbGhvc3Q6ODE4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYXBwX2J1eWVyIiwib2ZmbGluZV9hY2Nlc3MiLCJhcHBfc2VsbGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWUtY29tIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjZXNzLXRva2VuIjp7InJvbGVzIjpbInNlbGxlciIsImJ1eWVyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJmODFlODkzNi00OGMyLTQ3N2UtODUzMS05ZGM5ZDk0OGRjYTQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJTZWxsZXIgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InNlbGxlciIsImdpdmVuX25hbWUiOiJTZWxsZXIiLCJmYW1pbHlfbmFtZSI6IlVzZXIifQ.OP5sZ27NJzxQZ4idzduf9KYT_bESniJNwgsJ-ChmstdRMryft2dN7elmoey5VkJfuEMdfDAOA_kLJ2dQTRDI8370gfUzEmvDiPxq4gz_h9OXTtJIDLaPykvhFGhcXalxwrtSrYULTsIGRTc9u2Juzso31Df-aN5U7nTfj2KNlFOna7UhN4UmiY5wdNobtDYwtwGQCw6qkc4WJ0s3bZJvivHkFVJgXrdYgbem9dqNqp9l8YgaFXJFxX1yVYtrYBmhUlrkVW4xiXokrXcddUr767ClgItz1de1wcs6nhAN_kuo0_NOQGnRTQOaws91p8ltZ3XjHMcwYJLs9ASj7p21pw",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Rust Book\",\n    \"description\": \"Book about Rust\",\n    \"price\": 20,\n    \"quantity\": 250\n}",
+					"raw": "{\n    \"name\": \"Rust Book\",\n    \"description\": \"Book about Rust\",\n    \"price\": 13.99,\n    \"quantity\": 100\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +74,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/b2e5b7ed-b901-4555-9456-bbd932c940ad",
+					"raw": "{{URL}}:{{PORT}}/api/product/f0bbe424-9f19-4423-adb9-2cac3a3bacdf",
 					"host": [
 						"{{URL}}"
 					],
@@ -75,7 +82,7 @@
 					"path": [
 						"api",
 						"product",
-						"b2e5b7ed-b901-4555-9456-bbd932c940ad"
+						"f0bbe424-9f19-4423-adb9-2cac3a3bacdf"
 					]
 				}
 			},
@@ -90,7 +97,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/search?name=pytho",
+					"raw": "{{URL}}:{{PORT}}/api/product/search?name=python",
 					"host": [
 						"{{URL}}"
 					],
@@ -103,7 +110,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "pytho"
+							"value": "python"
 						}
 					]
 				}
@@ -114,12 +121,19 @@
 			"name": "Delete Product",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQmQxem1BVDBxNTF6ek1QemxkY0RqYU9WcTlvdUR1enAxLVJpcnZoQTRzIn0.eyJleHAiOjE2ODc0MzcyOTIsImlhdCI6MTY4NzQzNjk5MiwianRpIjoiOWYyZmZlMTQtMTE5NS00ODkzLTgwMzgtMjY4NzAwOWQ1MmYyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgxL2F1dGgvcmVhbG1zL2UtY29tIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQwYmQ0ZjU0LWM2NWEtNDQ0ZS04NWM3LTA2YjQwYTk1ZTY1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFjY2Vzcy10b2tlbiIsInNlc3Npb25fc3RhdGUiOiIzNmI3MTgxZi03NDFiLTQ2ZmItOWMzMS0yOGE0MzhjODk4ZjAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsImh0dHA6Ly9sb2NhbGhvc3Q6ODE4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYXBwX2J1eWVyIiwib2ZmbGluZV9hY2Nlc3MiLCJhcHBfc2VsbGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWUtY29tIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjZXNzLXRva2VuIjp7InJvbGVzIjpbInNlbGxlciIsImJ1eWVyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiIzNmI3MTgxZi03NDFiLTQ2ZmItOWMzMS0yOGE0MzhjODk4ZjAiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJTZWxsZXIgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InNlbGxlciIsImdpdmVuX25hbWUiOiJTZWxsZXIiLCJmYW1pbHlfbmFtZSI6IlVzZXIifQ.WoNA3on11S9qGN4qzJGgZ5WYMAp_DW0_TvCWAXdrNl5vvP5y_4kiur5XzBmOCX1QKETLQ0Jt7WaENeFRghIQZqxmuwIg44XVEzekwi31aysOZYjyp0KsZrvvN4OxcMSqDGV--dII_2YzE7knYIag37X5vugAciKFMmp2aX154cKowejjJQbzbZuQCJuKqb0F1azsPd-ow6yhmouGD8K60rfnUQAqBPUzoz2kQOxoa02uGTgMJ3HkggBYUF_-QpWhtFTHpmIztajjFs6a4UM4DO212FM8VXZoxMdMX_p6m2ypRcoXbcAFwB98FPNzF0ghgCiCWL0xQqFiGpTFm4u0uA",
+							"type": "string"
+						}
+					]
 				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/80fd13a2-9223-47de-97c0-fa2b40ae2490",
+					"raw": "{{URL}}:{{PORT}}/api/product/2494c158-8f6d-434f-bca0-1a92909e5c9f",
 					"host": [
 						"{{URL}}"
 					],
@@ -127,7 +141,7 @@
 					"path": [
 						"api",
 						"product",
-						"80fd13a2-9223-47de-97c0-fa2b40ae2490"
+						"2494c158-8f6d-434f-bca0-1a92909e5c9f"
 					]
 				}
 			},
@@ -136,6 +150,16 @@
 		{
 			"name": "Buy Product",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQmQxem1BVDBxNTF6ek1QemxkY0RqYU9WcTlvdUR1enAxLVJpcnZoQTRzIn0.eyJleHAiOjE2ODc0MzczOTIsImlhdCI6MTY4NzQzNzA5MiwianRpIjoiMTQ3NWExNDUtYTZmNS00ZjI2LWIwOGMtZTJiYmIzOTI4ODcyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgxL2F1dGgvcmVhbG1zL2UtY29tIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjQwYmQ0ZjU0LWM2NWEtNDQ0ZS04NWM3LTA2YjQwYTk1ZTY1MiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFjY2Vzcy10b2tlbiIsInNlc3Npb25fc3RhdGUiOiJmODFlODkzNi00OGMyLTQ3N2UtODUzMS05ZGM5ZDk0OGRjYTQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MCIsImh0dHA6Ly9sb2NhbGhvc3Q6ODE4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYXBwX2J1eWVyIiwib2ZmbGluZV9hY2Nlc3MiLCJhcHBfc2VsbGVyIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWUtY29tIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjZXNzLXRva2VuIjp7InJvbGVzIjpbInNlbGxlciIsImJ1eWVyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJmODFlODkzNi00OGMyLTQ3N2UtODUzMS05ZGM5ZDk0OGRjYTQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJTZWxsZXIgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InNlbGxlciIsImdpdmVuX25hbWUiOiJTZWxsZXIiLCJmYW1pbHlfbmFtZSI6IlVzZXIifQ.OP5sZ27NJzxQZ4idzduf9KYT_bESniJNwgsJ-ChmstdRMryft2dN7elmoey5VkJfuEMdfDAOA_kLJ2dQTRDI8370gfUzEmvDiPxq4gz_h9OXTtJIDLaPykvhFGhcXalxwrtSrYULTsIGRTc9u2Juzso31Df-aN5U7nTfj2KNlFOna7UhN4UmiY5wdNobtDYwtwGQCw6qkc4WJ0s3bZJvivHkFVJgXrdYgbem9dqNqp9l8YgaFXJFxX1yVYtrYBmhUlrkVW4xiXokrXcddUr767ClgItz1de1wcs6nhAN_kuo0_NOQGnRTQOaws91p8ltZ3XjHMcwYJLs9ASj7p21pw",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -209,7 +233,7 @@
 						},
 						{
 							"key": "client_id",
-							"value": "product-service",
+							"value": "access-token",
 							"type": "default"
 						},
 						{
