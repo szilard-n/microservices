@@ -32,6 +32,8 @@ the projects and second one to create the image.
 and scalable development environment.
 - **Keycloak**: Integrated as the identity and access management solution for authentication 
 and authorization.
+- **PostgreSQL**: The database is divided into three schemas: one for the Product Service, one for 
+the Inventory Service, and one for Keycloak.
 - **MockServer**: Used for mocking external endpoints in integration tests.
 - **DbRider**: Facilitates managing the database state during integration testing.
 - **RestAssured**: Testing framework for API testing, ensuring the correctness of endpoints.
