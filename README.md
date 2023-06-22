@@ -63,10 +63,11 @@ At this point we should be able to use the API with the provided [postman collec
 ## Usage
 
 We can use the provided [postman collection](./e-com.postman_collection.json) to send requests to the API.
-There are eight endpoints available.
+There are eight endpoints available. All API requests should go to `http://localhost:8080` and 
+`http://keycloak:8181/auth/realms/e-com/protocol/openid-connect/token` for access tokens.
 - **Get Access Token**: This endpoint is responsible for generating access tokens that we can
 use in the following requests. It requires a body of type `x-www-form-urlencoded` that contains
-the `grant_type=password`, `client_id=access_token`, `username={username}` and `password={password`
+the `grant_type=password`, `client_id=access-token`, `username={username}` and `password={password`
 values.
 - **Create Product**: Endpoint responsible for creating new products. It requires an access token
 for a user that has a role of **__seller__**. Request body example:
