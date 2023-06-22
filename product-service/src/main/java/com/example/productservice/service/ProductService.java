@@ -33,6 +33,10 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final InventoryClient inventoryClient;
 
+    /**
+     * Creates a new product and sends a request to inventory service
+     * with the given product quantity.
+     */
     @Transactional
     public ProductPreviewDto create(CreateProductRequest createProductRequest) {
         Product product = Product.builder()
@@ -49,6 +53,10 @@ public class ProductService {
                 product.getDescription(), product.getPrice(), createProductRequest.quantity());
     }
 
+    /**
+     * Handles a purchase request by validating if the product exists
+     * and sending a request to inventory service to update the inventory.
+     */
     public PurchaseResponse buyProduct(PurchaseRequest purchaseRequest) {
         Product product = findById(purchaseRequest.productId());
         InventoryUpdateRequest request = new InventoryUpdateRequest(product.getId(), purchaseRequest.quantity());
@@ -59,6 +67,10 @@ public class ProductService {
                 purchaseRequest.quantity(), Timestamp.from(Instant.now()));
     }
 
+    /**
+     * Validates the existence of the product and forwards a request to ivnentory
+     * service to update the inventory.
+     */
     public void restock(RestockRequest restockRequest) {
         Product product = findSellersProduct(restockRequest.productId(), getLoggedInUsersId());
         inventoryClient.updateInventoryForRestock(new InventoryUpdateRequest(product.getId(), restockRequest.quantity()));
@@ -98,6 +110,9 @@ public class ProductService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));
     }
 
+    /**
+     * Finds a product based on the product and the seller's id
+     */
     private Product findSellersProduct(UUID productId, UUID sellerId) {
         return productRepository.findByIdAndSellerId(productId, sellerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found!"));

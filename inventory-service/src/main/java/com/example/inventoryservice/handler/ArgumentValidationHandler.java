@@ -2,7 +2,6 @@ package com.example.inventoryservice.handler;
 
 import com.example.inventoryservice.dto.ApiErrorResponse;
 import lombok.NonNull;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatusCode;

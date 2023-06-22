@@ -4,7 +4,7 @@ package com.example.inventoryservice.service;
 import com.example.inventoryservice.dto.InventoryDto;
 import com.example.inventoryservice.dto.InventoryUpdateRequest;
 import com.example.inventoryservice.exception.InsufficientQuantityException;
-import com.example.inventoryservice.exception.NotFoundException;
+import com.example.inventoryservice.exception.ResourceNotFoundException;
 import com.example.inventoryservice.model.Inventory;
 import com.example.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -88,6 +88,6 @@ public class InventoryService {
      */
     private Inventory findInventoryLocked(UUID productId) {
         return inventoryRepository.findByProductId(productId)
-                .orElseThrow(() -> new NotFoundException(MessageFormat.format("Product with id {0} not found in inventory!", productId)));
+                .orElseThrow(() -> new ResourceNotFoundException(MessageFormat.format("Product with id {0} not found in inventory!", productId)));
     }
 }

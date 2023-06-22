@@ -1,6 +1,5 @@
 package com.example.productservice.security;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.NonNull;
@@ -15,14 +14,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-@Slf4j
 public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationToken> {
 
     private final JwtGrantedAuthoritiesConverter jwtConverter = new JwtGrantedAuthoritiesConverter();
@@ -32,7 +29,6 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
     @Override
     public AbstractAuthenticationToken convert(@NonNull Jwt jwt) {
-        log.info("Extracting token values from {}", jwt.getTokenValue());
         Collection<GrantedAuthority> authorities = Stream.concat(
                 Objects.requireNonNull(jwtConverter.convert(jwt)).stream(),
                 extractResourceRoles(jwt).stream()
@@ -74,11 +70,8 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
 
         Collection<String> resourceRole = (Collection<String>) resource.get(roles);
 
-        List<SimpleGrantedAuthority> r = resourceRole.stream()
+        return resourceRole.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                 .toList();
-
-        log.info("Roles found {}", r);
-        return r;
     }
 }

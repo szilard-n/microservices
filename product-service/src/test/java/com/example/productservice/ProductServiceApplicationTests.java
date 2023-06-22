@@ -66,9 +66,7 @@ import static org.mockserver.model.HttpResponse.response;
         cleanBefore = true)
 class ProductServiceApplicationTests {
 
-    @LocalServerPort
-    private int port;
-
+    private static final ObjectMapper objectMapper = new ObjectMapper();
     @Container
     static KeycloakContainer keycloak = new KeycloakContainer().withRealmImportFile("keycloak/realm-export.json");
 
@@ -79,7 +77,8 @@ class ProductServiceApplicationTests {
             .withPassword("s3cre3t");
 
     private static ClientAndServer mockServer;
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    @LocalServerPort
+    private int port;
 
     @DynamicPropertySource
     static void registerResourceServerIssuerProperty(DynamicPropertyRegistry registry) {
@@ -123,6 +122,22 @@ class ProductServiceApplicationTests {
     @AfterAll
     static void tearDown() {
         mockServer.stop();
+    }
+
+    private static String getBearerToken(String username, String password) {
+        try (Keycloak keycloakClient = KeycloakBuilder.builder()
+                .serverUrl(keycloak.getAuthServerUrl())
+                .realm("e-com")
+                .clientId("access-token")
+                .username(username)
+                .password(password)
+                .build()) {
+
+            String accessToken = keycloakClient.tokenManager().getAccessTokenString();
+            return "Bearer " + accessToken;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Test
@@ -322,7 +337,7 @@ class ProductServiceApplicationTests {
         );
 
         String bearerToken = getBearerToken(MOCK_BUYER.get("username"), MOCK_BUYER.get("password"));
-        PurchaseRequest purchaseRequest = new PurchaseRequest(PRODUCT_1.getId(),20);
+        PurchaseRequest purchaseRequest = new PurchaseRequest(PRODUCT_1.getId(), 20);
         PurchaseResponse response = given()
                 .port(port)
                 .contentType(ContentType.JSON)
@@ -341,9 +356,9 @@ class ProductServiceApplicationTests {
 
     @Test
     @DisplayName("Purchase product - should return 400 because of invalid request body")
-    void purchaseProduct_badRequest(){
+    void purchaseProduct_badRequest() {
         String bearerToken = getBearerToken(MOCK_BUYER.get("username"), MOCK_BUYER.get("password"));
-        PurchaseRequest purchaseRequest = new PurchaseRequest(null,0);
+        PurchaseRequest purchaseRequest = new PurchaseRequest(null, 0);
 
         given()
                 .port(port)
@@ -370,7 +385,7 @@ class ProductServiceApplicationTests {
         );
 
         String bearerToken = getBearerToken(MOCK_SELLER.get("username"), MOCK_SELLER.get("password"));
-        RestockRequest purchaseRequest = new RestockRequest(PRODUCT_1.getId(),20);
+        RestockRequest purchaseRequest = new RestockRequest(PRODUCT_1.getId(), 20);
         given()
                 .port(port)
                 .contentType(ContentType.JSON)
@@ -385,7 +400,7 @@ class ProductServiceApplicationTests {
     @DisplayName("Restock product - should return 403 because buyers can not restock")
     void restockProduct_forbidden() {
         String bearerToken = getBearerToken(MOCK_BUYER.get("username"), MOCK_BUYER.get("password"));
-        RestockRequest purchaseRequest = new RestockRequest(PRODUCT_1.getId(),20);
+        RestockRequest purchaseRequest = new RestockRequest(PRODUCT_1.getId(), 20);
 
         given()
                 .port(port)
@@ -401,7 +416,7 @@ class ProductServiceApplicationTests {
     @DisplayName("Restock product - should return 404 because product does not exist for seller")
     void restockProduct_notFound() {
         String bearerToken = getBearerToken(MOCK_SELLER.get("username"), MOCK_SELLER.get("password"));
-        RestockRequest purchaseRequest = new RestockRequest(UUID.randomUUID(),20);
+        RestockRequest purchaseRequest = new RestockRequest(UUID.randomUUID(), 20);
 
         given()
                 .port(port)
@@ -411,21 +426,5 @@ class ProductServiceApplicationTests {
                 .put("/api/product/restock")
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
-    }
-
-    private static String getBearerToken(String username, String password) {
-        try (Keycloak keycloakClient = KeycloakBuilder.builder()
-                .serverUrl(keycloak.getAuthServerUrl())
-                .realm("e-com")
-                .clientId("access-token")
-                .username(username)
-                .password(password)
-                .build()) {
-
-            String accessToken = keycloakClient.tokenManager().getAccessTokenString();
-            return "Bearer " + accessToken;
-        } catch (Exception e) {
-            return null;
-        }
     }
 }

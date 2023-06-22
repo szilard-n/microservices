@@ -41,17 +41,15 @@ import static org.assertj.core.api.Assertions.assertThat;
         cleanBefore = true)
 class InventoryServiceApplicationTests {
 
-    @LocalServerPort
-    private int port;
-
     @Container
     static KeycloakContainer keycloak = new KeycloakContainer().withRealmImportFile("keycloak/realm-export.json");
-
     @Container
     static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:latest")
             .withDatabaseName("postgres-test")
             .withUsername("psql")
             .withPassword("s3cre3t");
+    @LocalServerPort
+    private int port;
 
     @DynamicPropertySource
     static void registerResourceServerIssuerProperty(DynamicPropertyRegistry registry) {

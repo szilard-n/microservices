@@ -2,7 +2,7 @@ package com.example.inventoryservice.handler;
 
 import com.example.inventoryservice.dto.ApiErrorResponse;
 import com.example.inventoryservice.exception.InsufficientQuantityException;
-import com.example.inventoryservice.exception.NotFoundException;
+import com.example.inventoryservice.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 @Slf4j
 public class ApiExceptionHandler {
 
-    @ExceptionHandler(value = {NotFoundException.class})
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
     public ResponseEntity<ApiErrorResponse> NotFoundExceptionHandler(RuntimeException ex, WebRequest request) {
         HttpStatus status = HttpStatus.NOT_FOUND;
         return buildResponse(request, status, ex.getMessage());

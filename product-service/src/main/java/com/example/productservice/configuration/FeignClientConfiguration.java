@@ -1,7 +1,6 @@
 package com.example.productservice.configuration;
 
 import com.example.productservice.dto.KeycloakTokenResponse;
-import feign.Logger;
 import feign.RequestInterceptor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -57,10 +56,5 @@ public class FeignClientConfiguration {
 
             request.header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
         };
-    }
-
-    @Bean
-    Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
     }
 }

@@ -9,9 +9,7 @@ import org.springframework.boot.actuate.web.exchanges.InMemoryHttpExchangeReposi
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Spring actuator config class
- */
+
 @Configuration
 public class ApiLogConfiguration {
 
