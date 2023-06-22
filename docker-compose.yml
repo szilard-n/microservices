@@ -52,6 +52,8 @@ services:
       - DATASOURCE_PASSWORD=${DB_PASSWORD}
       - INVENTORY_URL=http://inventory-service:8080
       - KEYCLOAK_BASE_URL=http://keycloak:8181
+      - CLIENT_ID=${KEYCLOAK_CLIENT_ID}
+      - CLIENT_SECRET=${KEYCLOAK_CLIENT_SECRET}
     depends_on:
       - inventory-service
     ports:
