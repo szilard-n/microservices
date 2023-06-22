@@ -9,6 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -28,7 +34,7 @@ public class SecurityConfiguration {
                                 .requestMatchers(HttpMethod.POST, "/api/product").hasRole(ROLE_SELLER)
                                 .requestMatchers(HttpMethod.DELETE, "/api/product/**").hasRole(ROLE_SELLER)
                                 .requestMatchers(HttpMethod.POST, "/api/product/purchase").hasAnyRole(ROLE_SELLER, ROLE_BUYER)
-                                .requestMatchers(HttpMethod.POST, "/api/product/restock").hasAnyRole(ROLE_SELLER)
+                                .requestMatchers(HttpMethod.PUT, "/api/product/restock").hasRole(ROLE_SELLER)
                                 .anyRequest().authenticated()
                 );
 
@@ -38,9 +44,13 @@ public class SecurityConfiguration {
                 )
         );
 
+        http.cors(AbstractHttpConfigurer::disable);
+
         http.sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
     }
+
+
 
 }

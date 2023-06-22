@@ -1,0 +1,6 @@
+t_products:
+  - id: "a07102fc-dae4-4891-92d9-3ce7e5a44714"
+    seller_id: "10000000-0000-0000-0000-000000000000"
+    name: "Java Book"
+    description: "For beginner java developers - all you need to know as a beginner in one book"
+    price: 49.99

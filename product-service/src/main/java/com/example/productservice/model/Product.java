@@ -30,15 +30,27 @@ public class Product {
     )
     private UUID id;
 
-    @Column(name = "seller_id")
+    @Column(
+            name = "seller_id",
+            nullable = false
+    )
     private UUID sellerId;
 
-    @Column(name = "name")
+    @Column(
+            name = "name",
+            nullable = false
+    )
     private String name;
 
-    @Column(name = "description")
+    @Column(
+            name = "description",
+            nullable = false
+    )
     private String description;
 
-    @Column(name = "price")
+    @Column(
+            name = "price",
+            nullable = false
+    )
     private double price;
 }

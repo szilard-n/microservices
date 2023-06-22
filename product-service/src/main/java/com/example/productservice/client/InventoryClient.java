@@ -21,19 +21,19 @@ import java.util.UUID;
 )
 public interface InventoryClient {
 
-    @GetMapping("/{productId}")
+    @GetMapping("/api/inventory/{productId}")
     InventoryDto getInventoryForProduct(@PathVariable UUID productId);
 
-    @PutMapping("/purchase")
+    @PutMapping("/api/inventory/purchase")
     void updateInventoryForPurchase(@RequestBody InventoryUpdateRequest inventoryUpdateRequest);
 
-    @PutMapping("/restock")
+    @PutMapping("/api/inventory/restock")
     void updateInventoryForRestock(@RequestBody InventoryUpdateRequest inventoryUpdateRequest);
 
-    @PostMapping("/add-stock")
+    @PostMapping("/api/inventory/add-stock")
     void addNewItemToInventory(@RequestBody InventoryUpdateRequest inventoryUpdateRequest);
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/api/inventory/{productId}")
     void removeProductFromInventory(@PathVariable UUID productId);
 
 }

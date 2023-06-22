@@ -24,23 +24,23 @@ services:
       - KEYCLOAK_DATABASE_SCHEMA=${DB_SCHEMA}
       - KEYCLOAK_ADMIN_USER=${KEYCLOAK_USER}
       - KEYCLOAK_ADMIN_PASSWORD=${KEYCLOAK_PASSWORD}
+      - KC_HTTP_PORT=8181
     ports:
-      - '8181:8080'
+      - '8181:8181'
     depends_on:
       - postgres
   inventory-service:
     build:
       context: ./inventory-service
       dockerfile: Dockerfile
-      args:
-        - BUILD_NO_CACHE=1
     restart: unless-stopped
     environment:
       - DATASOURCE_URL=jdbc:postgresql://postgres:5432/${DB_NAME}?currentSchema=inventory_service
       - DATASOURCE_USERNAME=${DB_USER}
       - DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - KEYCLOAK_BASE_URL=http://keycloak:8181
     depends_on:
-      - postgres
+      - keycloak
   product-service:
     build:
       context: ./product-service
@@ -50,10 +50,10 @@ services:
       - DATASOURCE_URL=jdbc:postgresql://postgres:5432/${DB_NAME}?currentSchema=product_service
       - DATASOURCE_USERNAME=${DB_USER}
       - DATASOURCE_PASSWORD=${DB_PASSWORD}
-      - INVENTORY_URL=http://inventory-service:8080/api/inventory
+      - INVENTORY_URL=http://inventory-service:8080
+      - KEYCLOAK_BASE_URL=http://keycloak:8181
     depends_on:
       - inventory-service
-      - postgres
     ports:
       - '8080:8080'
 

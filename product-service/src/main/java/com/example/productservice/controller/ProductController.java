@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,12 +38,12 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ProductPreviewDto> getProductById(@PathVariable UUID productId) {
+    public ResponseEntity<ProductPreviewDto> previewProduct(@PathVariable UUID productId) {
         return ResponseEntity.ok(productService.previewProduct(productId));
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ProductDto>> getProductsByName(@RequestParam("name") String name) {
+    public ResponseEntity<List<ProductDto>> getProductsByNameContaining(@RequestParam("name") String name) {
         return ResponseEntity.ok(productService.getAllByName(name));
     }
 
@@ -63,7 +64,7 @@ public class ProductController {
     }
 
     @PutMapping("/restock")
-    public ResponseEntity<PurchaseResponse> restock(@RequestBody @Valid RestockRequest restockRequest) {
+    public ResponseEntity<Void> restock(@RequestBody @Valid RestockRequest restockRequest) {
         productService.restock(restockRequest);
         return ResponseEntity.ok().build();
     }

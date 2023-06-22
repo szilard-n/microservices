@@ -1,0 +1,6 @@
+t_products:
+  - id: "a07102fc-1111-4891-92d9-3ce7e5a44714"
+    seller_id: "10000000-0000-0000-0000-000000000000"
+    name: "Test"
+    description: "This is the description fo the product"
+    price: 29.99

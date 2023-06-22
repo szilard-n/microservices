@@ -88,6 +88,6 @@ public class InventoryService {
      */
     private Inventory findInventoryLocked(UUID productId) {
         return inventoryRepository.findByProductId(productId)
-                .orElseThrow(() -> new NotFoundException(MessageFormat.format("Product with id {} not found in inventory!", productId)));
+                .orElseThrow(() -> new NotFoundException(MessageFormat.format("Product with id {0} not found in inventory!", productId)));
     }
 }

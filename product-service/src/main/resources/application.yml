@@ -5,31 +5,37 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8181/auth/realms/e-com
+          issuer-uri: ${KEYCLOAK_BASE_URL}/auth/realms/e-com
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
       client:
         registration:
           product-service:
-            provider: keycloak-provider
             client-id: product-service
             client-secret: OKyHgoIvtRWlVAAtw1AQJBl4ZtSjm9Ov
             authorization-grant-type: client_credentials
         provider:
           keycloak-provider:
-            token-uri: http://localhost:8181/auth/realms/e-com/protocol/openid-connect/token
+            token-uri: ${KEYCLOAK_BASE_URL}/auth/realms/e-com/protocol/openid-connect/token
 
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 jwt:
   auth:
-    resource-id: product-service
+    resource-id: access-token
 
 clients:
   inventory: ${INVENTORY_URL}
 
 server:
   port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    com.example.productservice.client.InventoryClient: DEBUG

@@ -1,0 +1,11 @@
+t_products:
+  - id: "a07102fc-dae4-4891-92d9-3ce7e5a44714"
+    seller_id: "10000000-0000-0000-0000-000000000000"
+    name: "Java Book"
+    description: "For beginner java developers - all you need to know as a beginner in one book"
+    price: 49.99
+  - id: "1e2096bd-d92b-4df4-aeb2-b1443aae81b7"
+    seller_id: "10000000-0000-0000-0000-000000000000"
+    name: "JavaScript Book"
+    description: "JavaScript basics for new developers"
+    price: 60

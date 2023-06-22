@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Build the JAR files
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw clean package
 
 # Stage 2: Build the final image
 FROM eclipse-temurin:17-jre-focal
