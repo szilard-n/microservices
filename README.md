@@ -7,6 +7,15 @@ architecture, consisting of two microservices: Product Service and Inventory
 Service. The project simulates an e-commerce website, focusing on product management 
 and inventory tracking.
 
+## Challenge Requirements
+
+- Keycloak: Set up Keycloak to provide user authentication and authorization.
+- JWT: Use JSON Web Tokens (JWT) for secure information transmission and implement authentication and authorization.
+- Docker Compose: Use Docker Compose to containerize and deploy Keycloak and the 2 services.
+- Server-Server Authentication: Implement server-server authentication between the service 1 and service 2 with Keycloak.
+- Documentation: Write a README file and other relevant documentation.
+- Testing: Write automated tests to validate the functionality.
+
 ## Key Features and Functionalities
 
 - **Product Service**: Handles product-related requests such as product creation, 
