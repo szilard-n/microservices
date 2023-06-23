@@ -105,3 +105,8 @@ Example request body:
     "quantity": 20
 }
 ```
+
+## Diagrams
+
+- [Database Relation](./db.png)
+- [Architecture](./architecture.png)
