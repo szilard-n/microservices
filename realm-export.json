@@ -524,7 +524,7 @@
     {
       "id": "10000000-0000-0000-0000-000000000000",
       "username": "seller",
-      "email": "seller@gmail.com",
+      "email": "",
       "firstName": "Seller",
       "lastName": "User",
       "enabled": true,
@@ -546,7 +546,7 @@
     {
       "id": "20000000-0000-0000-0000-000000000000",
       "username": "buyer",
-      "email": "buyer@gmail.com",
+      "email": "",
       "firstName": "Buyer",
       "lastName": "User",
       "enabled": true,
@@ -878,7 +878,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "**********",
+      "secret": "OKyHgoIvtRWlVAAtw1AQJBl4ZtSjm9Ov",
       "redirectUris": [
         "http://localhost:8080/*"
       ],

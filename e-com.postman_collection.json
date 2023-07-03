@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQmQxem1BVDBxNTF6ek1QemxkY0RqYU9WcTlvdUR1enAxLVJpcnZoQTRzIn0.eyJleHAiOjE2ODc0NTA3NTcsImlhdCI6MTY4NzQ1MDQ1NywianRpIjoiNDBjMWFmNzMtZjdhZS00NTc2LWIyMzQtZGI1ZjBiZmM2MzBhIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgxODEvYXV0aC9yZWFsbXMvZS1jb20iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNDBiZDRmNTQtYzY1YS00NDRlLTg1YzctMDZiNDBhOTVlNjUyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWNjZXNzLXRva2VuIiwic2Vzc2lvbl9zdGF0ZSI6ImNlNGRhNzcyLWJlM2YtNGI5My1hZTdiLWIwZDU5OGZjNWY2MCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiaHR0cDovL2xvY2FsaG9zdDo4MTgxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJhcHBfYnV5ZXIiLCJvZmZsaW5lX2FjY2VzcyIsImFwcF9zZWxsZXIiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtZS1jb20iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2Nlc3MtdG9rZW4iOnsicm9sZXMiOlsic2VsbGVyIiwiYnV5ZXIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImNlNGRhNzcyLWJlM2YtNGI5My1hZTdiLWIwZDU5OGZjNWY2MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlNlbGxlciBVc2VyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VsbGVyIiwiZ2l2ZW5fbmFtZSI6IlNlbGxlciIsImZhbWlseV9uYW1lIjoiVXNlciJ9.ap2-e78gQOnHkVhSyaAkVcBQs9HkywTCpDu2akMsbg5xX605QmtQufrhXSAd94x6pRWJGJp3t1nxCGiX52PmLfm6uFcZ-P9oDDmbHflXiv0h63ce9x9v-ZWRTdkgu1eIl563_oWLzz6fdMuDsaRfve1tjw9zQH-VlzlWyDdUFi49uInf-ra5ijd0A3fUAG_7RTELFYiosbuTdLjJX2LwIQQ5buGqIHAAF62Puag6QwW-M8LOCxpiy30O8LZxJedcT2PvcZJhsFWWVC3gbcJtCj-HDM0caZdX7MmMFUWyd69WgbigJr-Q8lfq_WVoNbtzGvj7-PTv3j-iBCAKTEQHwg",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2ejRUd3E1bmJ0WHVldU1QY2JKbktpdEhLeVZNRHdJd2EwOVd6Qm5BRkZzIn0.eyJleHAiOjE2ODg0MDAwOTcsImlhdCI6MTY4ODM5OTc5NywianRpIjoiZWFlZGFlODItNzM3Mi00M2ZjLTkzMGItZGFkYzIzOGRmMGY4IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgxODEvYXV0aC9yZWFsbXMvZS1jb20iLCJzdWIiOiIxMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhY2Nlc3MtdG9rZW4iLCJzZXNzaW9uX3N0YXRlIjoiYTVkY2VkNmMtZjUwNy00ZWQ5LTg2MjYtMTZlMzgyMTJhYTE2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiLCJodHRwOi8vbG9jYWxob3N0OjgxODEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbInNlbGxlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY2Vzcy10b2tlbiI6eyJyb2xlcyI6WyJzZWxsZXIiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJhNWRjZWQ2Yy1mNTA3LTRlZDktODYyNi0xNmUzODIxMmFhMTYiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJTZWxsZXIgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InNlbGxlciIsImdpdmVuX25hbWUiOiJTZWxsZXIiLCJmYW1pbHlfbmFtZSI6IlVzZXIifQ.EFeOG1FXesc1J9av0sKSDPNuRBg1hPk8AfJSec5nVeTgBrBNe2dmW34hm_8AXlbteLusjT4xxeqHgA01E2BLC9xu22C5k7kJH2ZvoY42pJ42hQtI3eqGRozXms7hXX46oAx29g2KyAGUIhaayyCAnnAavM0wi3NMDxXDTFQ6-gCRiqe4TDOyUtNSafOg0w6yR_7YA3hCkKlV-V79YQCFHPIx5HT6oXWmpv88N9jqUd5MzmuOmbwqCU1gZAzaSEY-Ti-lYbWve51BXCjQNpaYr7kk9GhoVJm4CSP7GG0h0_sUrckzxLzrWSbSUiG4-Y2ZCRYwKb8nAsIgY-rFEaGoKA",
 							"type": "string"
 						}
 					]
@@ -22,7 +22,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"C++ Book\",\n    \"description\": \"Book about C++\",\n    \"price\": 13.99,\n    \"quantity\": 100\n}",
+					"raw": "{\n    \"name\": \"Java Book\",\n    \"description\": \"Book about Java\",\n    \"price\": 13.99,\n    \"quantity\": 100\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -30,11 +30,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product",
+					"raw": "http://localhost:8080/api/product",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product"
@@ -52,11 +53,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product",
+					"raw": "http://localhost:8080/api/product",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product"
@@ -74,15 +76,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/12e6218a-aa4d-4a79-90ba-3ccd8b6088a3",
+					"raw": "http://localhost:8080/api/product/6316090b-d74d-4451-a9c0-3cda75ba2bc0",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product",
-						"12e6218a-aa4d-4a79-90ba-3ccd8b6088a3"
+						"6316090b-d74d-4451-a9c0-3cda75ba2bc0"
 					]
 				}
 			},
@@ -97,11 +100,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/search?name=python",
+					"raw": "http://localhost:8080/api/product/search?name=book",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product",
@@ -110,7 +114,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "python"
+							"value": "book"
 						}
 					]
 				}
@@ -125,7 +129,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzQmQxem1BVDBxNTF6ek1QemxkY0RqYU9WcTlvdUR1enAxLVJpcnZoQTRzIn0.eyJleHAiOjE2ODc0NTA5MzcsImlhdCI6MTY4NzQ1MDYzNywianRpIjoiZGJiNjk0NDQtZjQzOC00NzY1LTk4ZTYtOTFkODcyNjgzZTg5IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgxODEvYXV0aC9yZWFsbXMvZS1jb20iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNzU0MThjNDgtZjIxMy00MjdjLWIwNGYtYjAzNDhkMTM3ZDVmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWNjZXNzLXRva2VuIiwic2Vzc2lvbl9zdGF0ZSI6IjdkNTdiNDgwLTVlZDMtNDRmMy05ZmUyLTlmMzcwYjJhMWZlNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiaHR0cDovL2xvY2FsaG9zdDo4MTgxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJhcHBfYnV5ZXIiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1lLWNvbSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY2Vzcy10b2tlbiI6eyJyb2xlcyI6WyJidXllciJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiN2Q1N2I0ODAtNWVkMy00NGYzLTlmZTItOWYzNzBiMmExZmU0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiQnV5ZXIgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImJ1eWVyIiwiZ2l2ZW5fbmFtZSI6IkJ1eWVyIiwiZmFtaWx5X25hbWUiOiJVc2VyIn0.CXY7XqKg5pF2BM-WLUNK96sHNPKHQ6QbPxuytZet6l0OnAE21Q4dIJUV-6OnEN1cry68bK_PTJKv34TYJgXfFqeelAC_F6njAMA7_Ykgq6znC19DTGV6ZJmjF1LsGR0G0j_8OkPqy8a0jeHIF0vmtdqR_g772qTmTSHeM-2ofQJHUMUhMiwkMlFK2JMiDn8vrqDH4f1Z62oK7LveGUcBatC7IhzBd7nHLRtdT3XuABgzfwr2sLTGvU_1fykVYrxYBYPBqgnHYug1M-8RVlruR6BMXAnIDK5o43Vaiq58FllalXjrKIxx0Wr8j2REdgEdh8EAFioFVQ8864OAGKd83A",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYQ0lWLTBIUWdBVUl2WTJNODdiOUc0TkJsNjlCZmtVS0J5REdVeW9XWDRVIn0.eyJleHAiOjE2ODgzOTkzNjMsImlhdCI6MTY4ODM5OTA2MywianRpIjoiOGQ5MmJhYWQtOGZlMi00ODQxLWE4N2UtZmFkNTM1MDAyZjk3IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgxODEvYXV0aC9yZWFsbXMvZS1jb20iLCJzdWIiOiIxMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhY2Nlc3MtdG9rZW4iLCJzZXNzaW9uX3N0YXRlIjoiZWU1ZDIxYzQtZDliOS00MmNiLTgzZmMtYjczZmY2NmRkMDFlIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8va2V5Y2xvYWs6ODE4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsic2VsbGVyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjZXNzLXRva2VuIjp7InJvbGVzIjpbInNlbGxlciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImVlNWQyMWM0LWQ5YjktNDJjYi04M2ZjLWI3M2ZmNjZkZDAxZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlNlbGxlciBVc2VyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VsbGVyIiwiZ2l2ZW5fbmFtZSI6IlNlbGxlciIsImZhbWlseV9uYW1lIjoiVXNlciJ9.ABtIa4lPNuVmJQToh5Lche6HvRDNSzs7aQpxvmeVCtazdtko372CIXsjOp5vUJL8aYQ1jNWn8Yt1270_HRFBqLW6pzHUF7qJ8H7xxQHWNGptCe7wdd5q9SMSKLK2GoD4DCznLf6GkS0yBuheegmpiCsGQU18ssIiJ0OkKwhP7Y_68ypvP5BBhXaOeec80ER468pZwwipvC1rnopSVPwepz-YcUlnYqHVeN-0VnAvjBFQ0I_g-vE_1X0ZNW8gYLhFguvkMQyvVs9qTSr7Iv1nmKy0QaUE7SqVTpDCV5YFl1-pea7KtGJID63ZiYxhbWvVraWHBYRkb-NWW_bAQ18rFA",
 							"type": "string"
 						}
 					]
@@ -133,15 +137,16 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/12e6218a-aa4d-4a79-90ba-3ccd8b6088a3",
+					"raw": "http://localhost:8080/api/product/6316090b-d74d-4451-a9c0-3cda75ba2bc0",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product",
-						"12e6218a-aa4d-4a79-90ba-3ccd8b6088a3"
+						"6316090b-d74d-4451-a9c0-3cda75ba2bc0"
 					]
 				}
 			},
@@ -172,11 +177,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/purchase",
+					"raw": "http://localhost:8080/api/product/purchase",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product",
@@ -211,11 +217,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}:{{PORT}}/api/product/restock",
+					"raw": "http://localhost:8080/api/product/restock",
+					"protocol": "http",
 					"host": [
-						"{{URL}}"
+						"localhost"
 					],
-					"port": "{{PORT}}",
+					"port": "8080",
 					"path": [
 						"api",
 						"product",

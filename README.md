@@ -52,22 +52,14 @@ the Inventory Service, and one for Keycloak.
 1. Clone the project from GitHub
 2. Navigate to the project directory by running `cd e-com`
 3. Run `docker compose up --build -d`
-4. Go to `http://localhost:8181/auth`. Log in using `admin` as username and password.
-A new realm called **_e-com_** needs to be created. Inside this realm create two clients: 
-   - **access-token**, which is going to use the **_Standard Flow_** and **_Direct access grant_** 
-   Authentication flows. This is going to be responsible for generating the access token for
-   the user.
-   - **product-service**, which is going to use the **_Service account roles_** Authentication flow.
-   We also need to enable the **_Client authentication_** capability.
-5. Next we need to create the required roles for the API. Navigate to the **_Clients_** tab
-and create two roles: **_buyer_** and **__seller__**. Navigate to **__Realm roles__** tab and create
-two new roles: **__app_buyer__** and **__app_seller__**. Then click on each of them and associate 
-the **__buyer__** role, we previously created, with the **__app_buyer__**, by clicking on the 
-**__Actions__** dropdown and clicking **__Add associated role__**. Do the same with **__app_seller__**
-and **__seller__** role.
-6. Lastly we can create two users int the **__Users__** tab, create passwords for them in the
-**__Credentials__** tab and assign them **__seller__** and **__buyer__** roles on the 
-**__Role mappings__** tab.
+4. Wait a few seconds for the containers to start and then go to `http://localhost:8181/auth`. Log in using `admin` 
+as username and password.
+5. Now we need to import our realm that contains the clients, roles, and users. Click on the dropdown
+from the upper left corner and click on **__Create Realm__**
+6. Press the **__Browse__** button and select the provided [realm export](./realm-export.json)
+and press **__Create__**
+7. Wait a few seconds for the **__Product Service__** to properly start as it depends
+on the newly created realm
 
 At this point we should be able to use the API with the provided [postman collection](./e-com.postman_collection.json).
 
