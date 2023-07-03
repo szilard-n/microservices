@@ -476,9 +476,9 @@
   "otpPolicyPeriod": 30,
   "otpPolicyCodeReusable": false,
   "otpSupportedApplications": [
+    "totpAppMicrosoftAuthenticatorName",
     "totpAppGoogleName",
-    "totpAppFreeOTPName",
-    "totpAppMicrosoftAuthenticatorName"
+    "totpAppFreeOTPName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": [
@@ -599,10 +599,11 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:8082/*"
+        "http://localhost:8080/*"
       ],
       "webOrigins": [
-        "http://localhost:8082"
+        "http://localhost:8080",
+        "http://localhost:8181"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -879,10 +880,10 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "**********",
       "redirectUris": [
-        "http://localhost:8082/*"
+        "http://localhost:8080/*"
       ],
       "webOrigins": [
-        "http://localhost:8082"
+        "http://localhost:8080"
       ],
       "notBefore": 0,
       "bearerOnly": false,
