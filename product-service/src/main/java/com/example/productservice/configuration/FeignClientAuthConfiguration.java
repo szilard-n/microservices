@@ -2,11 +2,9 @@ package com.example.productservice.configuration;
 
 import com.example.productservice.dto.KeycloakTokenResponse;
 import feign.RequestInterceptor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -15,10 +13,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-@Configuration
-@RequiredArgsConstructor
+
 @Slf4j
-public class FeignClientConfiguration {
+public class FeignClientAuthConfiguration {
 
     @Value("${spring.security.oauth2.client.registration.product-service.client-id}")
     private String clientId;
@@ -44,9 +41,10 @@ public class FeignClientConfiguration {
         HttpEntity<MultiValueMap<String, String>> requestBody = new HttpEntity<>(requestBodyParameters, headers);
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<KeycloakTokenResponse> keycloakResponse = restTemplate.postForEntity(tokenUri, requestBody, KeycloakTokenResponse.class);
 
         return request -> {
+            ResponseEntity<KeycloakTokenResponse> keycloakResponse = restTemplate.postForEntity(tokenUri, requestBody, KeycloakTokenResponse.class);
+
             String accessToken = "";
             if (keycloakResponse.getStatusCode().is2xxSuccessful() && keycloakResponse.getBody() != null) {
                 accessToken = keycloakResponse.getBody().accessToken();

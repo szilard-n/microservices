@@ -1,6 +1,6 @@
 package com.example.productservice.client;
 
-import com.example.productservice.configuration.FeignClientConfiguration;
+import com.example.productservice.configuration.FeignClientAuthConfiguration;
 import com.example.productservice.dto.inventory.InventoryDto;
 import com.example.productservice.dto.inventory.InventoryUpdateRequest;
 import com.example.productservice.handler.FeignClientErrorDecoder;
@@ -17,7 +17,7 @@ import java.util.UUID;
 @FeignClient(
         name = "inventoryClient",
         url = "${clients.inventory}",
-        configuration = {FeignClientErrorDecoder.class, FeignClientConfiguration.class}
+        configuration = {FeignClientErrorDecoder.class, FeignClientAuthConfiguration.class}
 )
 public interface InventoryClient {
 
