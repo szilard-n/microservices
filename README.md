@@ -58,8 +58,18 @@ as username and password.
 from the upper left corner and click on **__Create Realm__**
 6. Press the **__Browse__** button and select the provided [realm export](./realm-export.json)
 and press **__Create__**
-7. Wait a few seconds for the **__Product Service__** to properly start as it depends
-on the newly created realm
+7. Next step is to add `keycloak` to our **__hosts__** file so that we can send requests to 
+`http://keycloak:8181/**`. This ensures that the JWT issuer hostname is the same across our system
+and the docker containers.
+    - If you are on a **Linux/Unix** based system:
+      1. run `sudo nano /etc/hosts` in your terminal.
+      2. Append `127.0.0.1  keycloak` at the end of the file.
+      3. Press `ctr + x`, then `y` and `enter` to save and exit the file.
+    - If you are on a **Windows** machine:
+      1. Open the text editor in **Administrator Mode**.
+      2. In the text editor, open `C:\Windows\System32\drivers\etc\hosts`.
+      3. Append `127.0.0.1  keycloak` at the end of the file.
+      4. Save the changes and exit the editor.
 
 At this point we should be able to use the API with the provided [postman collection](./e-com.postman_collection.json).
 
